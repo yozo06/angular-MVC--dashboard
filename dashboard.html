@@ -1,40 +1,84 @@
-<html>
-<head>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
+///css///
+p{
+  font-size: 12px;
+}
+#br {
+    display: block; 
+    content: ""; 
+    margin-top: 10px; 
+}
+.pc{
+  width:50px;
+}
+.chart {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  margin-left: 15%;
+  text-align: center;
+}
+.chart canvas {
+  position: absolute;
+  width: 50px !important;
+  height: 50px !important;
+  top: 0;
+  left: 0;
+}
+.percent {
+  display: inline-block;
+  line-height: 50px;
+  z-index: 2;
+}
+.percent:after {
+  content: '';
+  margin-left: 0.1em;
+  font-size: .8em;
+}
+.angular {
+  margin-top: 100px;
+  margin-left: 35%;
+}
+.angular .chart {
+  margin-top: 0;
+}
+input {
+  display: block;
+  margin: auto;
+  margin-bottom: 3em;
+}
+.span6 {
+  float: left;
+  width: 50%;
+}
+
+
 body{
+  color:black;
   overflow-wrap:break-word;
   display:inline;
 }
 header{
   background-color:black;
   }
-h1{
-  color:white;
-    padding-top:1%;
-    padding-bottom:1%;
+#h1{
+    color:white;
+    padding-top:8px;
+    padding-bottom:8px;
     padding-left:5%;
-  }
-.row1{
-  margin: 1%;
-  padding-left:1px !important;
-    padding-right:1px !important;
   }
 #project_name{
   font-weight:bold;
     float:left !important;
 }
 #start_date{
-  float:left !important;
+
 }
 #b_version{
   font-weight:bold;
 }
-
 #upcoming_rls{
   float:right;
 }
@@ -42,111 +86,260 @@ h1{
   float:left;
 }
 span{
-  padding-left:;
   }
-#c1{
-  min-height:140px;
-}
 .no-padding{
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
-.pagination>li>a, .pagination>li>span {
-  border-radius: 50% !important;
-    margin: 0 5px;
-    padding-left: 0px !important;
-    
+.no-margin{
+  margin: 0px;
 }
-</style>
+.rc2{
+  max-height: 120px;
+}
+#row1{
+    min-height: 100px;
+    padding: 10px;
+  }
+#row2{
+  min-height: 350px;
+  min-width: 370px;
+  padding-top:10px;
+}
+#row3{
+  min-width: 370px;
+  min-height: 80px;
+  padding-bottom:10px;
+  padding-top: 10px;
+}
+#r1c1{
+  min-width: 400px;
+}
+#r1c2{
+  min-width: 400px;
+
+}
+#mob{
+  min-width: 350px;
+}
+#dev_env{
+  float:right;
+}
+#prod_env{
+  float: right;
+}
+
+div.main_div{
+    margin:0;
+    padding:10px;
+    width: 90%;
+    height: 40px;    
+    position:absolute;
+    overflow: hidden;
+}
+div.text_wrapper{    
+    height:20px;
+    /*z-index:10;*/
+    background:transparent;
+    white-space: nowrap;
+    font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
+    color:black;
+    font-size:15px;
+    vertical-align: middle;
+    -webkit-transition: all 0.3s ease-in-out;
+                -moz-transition: all 0.3s ease-in-out;
+                -o-transition: all 0.3s ease-in-out;
+                -ms-transition: all 0.3s ease-in-out;
+    position:absolute;
+    -webkit-animation: anim 8.5s infinite;
+    /*animation: anim 8.5s infinite;
+    animation-direction: alternate-reverse;*/
+    -webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+    animation-timing-function: linear;
+}
+
+@-webkit-keyframes anim {
+     from {
+         left: -50%;         
+     }
+     to {
+         left:100%;
+     }
+}
+
+@keyframes anim {
+   from {
+         left: -20%;
+     }
+     to {
+         left:100%;
+     }
+}
+/////css-over////
+
+/////html/////
+<html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="dashboard.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
-<header>
-<h1 class="container text-left"><strong>Munchies</strong> Development Analytics</h1>
+<body ng-app="dash">
+<header id="r1c1" class="no-margin">
+<h1 id="h1" class="container text-left no-margin"><strong>Munchies</strong> Development Analytics</h1>
 </header>
-<br>
+<br id="br">
 <div class="container text-center" >
-  <div class="row">
-      <div class="col-xs-6 ">
-          <div class="col-xs-12 well" id="c1">
+  <div class="row" ng-controller="row1-col1">
+      <div class="col-xs-6 " id="r1c1">
+          <div class="col-xs-12 well no-margin" id="row1">
               <div class="row">
-                  <span class="col-xs-6" id="project_name">Project Name</span>
-                    <span class="col-xs-6" id="upcoming_rls">Upcoming release-<b>1707</b></span>
+                  <span class="col-xs-6" id="project_name" ng-bind="project_name"></span>
+                    <span class="col-xs-6" id="upcoming_rls">Upcoming release-<b ng-bind="release"></b></span>
                 </div>
-             <br>
+             <br id="br">
                 <div class="row">
-                  <span class="col-xs-6" id="fl">Started: <span id="start_date"></span>12 Jan 2017</span>
-                    <span class="col-xs-6" id="fl">Expected:<span id="exp_date">31 Dec 2017</span></span>
+                  <span class="col-xs-6" id="fl">Started: <span id="start_date" ng-bind="start_date"></span></span>
+                  <span class="col-xs-6" id="fl">Expected: <span id="exp_date" ng-bind="exp_date"></span></span>
                 </div>
-              <br>
+              <br id="br">
                 <div class="row">
-                  <span class="col-xs-12" id="fl">Baseline Version- <span id="b_version">1.0.3.1</span></span>
+                  <span class="col-xs-12" id="fl">Baseline Version- <span id="b_version" ng-bind="b_version"></span></span>
                 </div>
             </div>
         </div>
-        <div class="col-xs-2">
-          <div class="well no-padding" id="c1">
+        <div class="col-xs-6" id="r1c2" ng-controller="row1-col2">
+          <div class="col-xs-4">
+            <div class="well no-padding rc2 no-margin" id="row1">
               <span >Total Files</span>
-                <h3>50</h3>
+                <h3 ng-bind="tf"></h3>
             </div>           
-        </div>
-        <div class="col-xs-2">
-          <div class="well no-padding" id="c1">
+          </div>
+          <div class="col-xs-4">
+            <div class="well no-padding rc2 no-margin" id="row1">
               <span >WIP</span>
-                <h3>50</h3>
+                <h3 ng-bind="wip">50</h3>
             </div>  
-        </div>
-        <div class="col-xs-2">
-          <div class="well no-padding" id="c1">
+          </div>
+          <div class="col-xs-4">
+            <div class="well no-padding rc2 no-margin" id="row1">
               <span >Multiple Users</span>
-                <h3>50</h3>
+                <h3 ng-bind="mu">50</h3>
             </div>  
+          </div>
         </div>        
     </div>
 </div>
-
-<div class="container">
+<br id="br">
+<div class="container no-padding">
   <div class="row">
-      <ul class="pagination">
-              <li class="active"><a href="#"><span class="sr-only">(current)</span></a></li>
-              <li><a href="#"></a></li>
-              <li><a href="#"></a></li>
-              <li><a href="#"></a></li>
-              <li><a href="#"></a></li>
-            </ul>
-      <div class="col-xs-12 " style="max-height:10px; border-style:solid;border-bottom:black;">
+      <div class="col-xs-12 " id="r1c1" style="max-height:10px; border-style:solid;border-bottom:black;">
       </div>
   </div>
 </div>
 
-<div class="container">
-<br>
+<div class="container" ng-controller="chartCtrl" id="row2">
+<!-- <br id="br"> -->
   <div class="row">
-      <div class="col-xs-5">
-          <div class="col-xs-12 well">
+    <div class="col-xs-12">
+      <div class="col-xs-12 well no-margin" id="row2">
+            <span id="fl"><b>WIP Details</b></span>
+            <div class="col-xs-12 " style="max-height:10px; border-style:solid;border-bottom:black;border-width:thin;">
+            </div>
+            <br id="br"><br>
+            
+            <!--pie chart-->
+            <div ng-controller="chartCtrl">
+            <div class="col-xs-1" ng-repeat="percent in percentages track by $index">
+                          <span class="chart" easypiechart ng-init="options = { animate:false, barColor:'#E67E22', scaleColor:false, lineWidth:3, lineCap:'butt' }" percent=" percent" options="options">
+                            <span class="percent" ng-bind="percent"></span>
+                            <p ng-bind="filename"></p>
+                            </span>  
+            </div>
+            </div>
+            <!---->
+
+      </div>
+    </div>
+  </div>
+</div>
+<br id="br">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12"  style="max-height:10px; border-style:solid;border-bottom:black;">
+      </div>
+    <!-- <br id="br"> -->
+  </div>    
+</div>
+
+<!--footer-->
+<footer class="container" id="row3" >
+  <div class="row ">
+    <div class="col-xs-12" >
+    <div class="col-xs-12 well no-padding no-margin" id="row3" >
+      <div class="col-xs-4" ng-controller="row3-col1">
+          <div class="col-xs-12" >
               <span id="fl"><b>Build Status</b></span>
               <div class="col-xs-12 " style="max-height:10px; border-style:solid;border-bottom:black;border-width:thin;">
-                </div>
-                <br><br>
-                <div>
-                  <span id="fl">Production Environment</span>
               </div>
-                <br><br>
-                <div class="col-xs-12 " style="max-height:10px; border-style:dashed;border-bottom:black;border-width:thin;">
-                </div>
-                <br>
-                <div>
-                  <span id="fl">Development Environment</span>
+              <br id="br">
+              <div>
+                <div class="col-xs-12 no-padding" id="fl">Production Environment: <b><span id="prod_env" ng-bind="prod_env"></span></b></div>
+              </div>
+              <br id="br">
+              <div class="col-xs-12 " style="max-height:10px; border-style:dashed;border-bottom:black;border-width:thin;">
+              </div>
+              <div>
+                  <div class="col-xs-12 no-padding" id="fl">Development Environment: <span id="dev_env" ng-bind="dev_env"></span></div>
+              </div>
+          </div>
+      </div>
+      <div class="col-xs-8" ng-controller="row3-col2">
+            <span id="f1"><b>Notification</b></span>
+            <div class="col-xs-12" style="max-height:10px; border-style:solid;border-bottom:black;border-width:thin;">
+            </div><br>
+            <div class="main_div container">
+              <div class="text_wrapper"><span>Notifications: </span><span>two days remaining</span>
               </div>
             </div>
-        </div>
-        <div class="col-xs-7 well">
-              <span id="fl"><b>WIP Details</b></span>
-              <div class="col-xs-12 " style="max-height:10px; border-style:solid;border-bottom:black;border-width:thin;">
-              </div>          
-          </div>            
+      </div>
     </div>
-    <div class="col-xs-5 well"></div>
-</div>  
-
+  </div>    
+</footer>
+<script src="angular.easypiechart.min.js"></script>
+<script src="dashboard.js"></script>
 </body>
 </html>
+/////html-over////
+  
+/////js//////
+var app=angular.module("dash",["easypiechart"]);
+  app.controller("row1-col1",function($scope){
+    $scope.project_name="Verizon";
+    $scope.release="1704";
+    $scope.start_date="2 Feb 2017";
+    $scope.exp_date="31 Dec 2017";
+    $scope.b_version="1.0.3.1";
+  });
+  app.controller("row1-col2",function($scope){
+    $scope.num="Verizon";
+    $scope.tf="500";
+    $scope.wip="100";
+    $scope.mu="50";
+  });
+    app.controller("row3-col1",function($scope){
+      $scope.prod_env="git";
+      $scope.dev_env="";
+  });
+    app.controller("row3-col2",function($scope){
+
+  });
+    app.controller('chartCtrl', ['$scope', function ($scope) {
+        $scope.percentages = [70,50,66,33,17,83,92,74,45,24,56,23,88,90,23,34,45,67,71,71,71,71,71,71,71,71];
+        $scope.filename= "filename";
+    }]);
+/////js-over////
