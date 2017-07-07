@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$request = current($conn->query("select BRANCHNAME from BRANCH_DETAILS;")->fetch_assoc());
+$request = current($conn->query("SELECT COUNT(DISTINCT FILE_ID) FROM EVENTS_ON_FILE WHERE BRANCH_ID=1;")->fetch_assoc());
 echo $request;
 
 $conn->close();

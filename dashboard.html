@@ -1,186 +1,3 @@
-<<<<<<< HEAD
-=======
-///css///
-p{
-  font-size: 12px;
-}
-#br {
-    display: block; 
-    content: ""; 
-    margin-top: 10px; 
-}
-.pc{
-  width:50px;
-}
-.chart {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  margin-left: 15%;
-  text-align: center;
-}
-.chart canvas {
-  position: absolute;
-  width: 50px !important;
-  height: 50px !important;
-  top: 0;
-  left: 0;
-}
-.percent {
-  display: inline-block;
-  line-height: 50px;
-  z-index: 2;
-}
-.percent:after {
-  content: '';
-  margin-left: 0.1em;
-  font-size: .8em;
-}
-.angular {
-  margin-top: 100px;
-  margin-left: 35%;
-}
-.angular .chart {
-  margin-top: 0;
-}
-input {
-  display: block;
-  margin: auto;
-  margin-bottom: 3em;
-}
-.span6 {
-  float: left;
-  width: 50%;
-}
-
-
-body{
-  color:black;
-  overflow-wrap:break-word;
-  display:inline;
-}
-header{
-  background-color:black;
-  }
-#h1{
-    color:white;
-    padding-top:8px;
-    padding-bottom:8px;
-    padding-left:5%;
-  }
-#project_name{
-  font-weight:bold;
-    float:left !important;
-}
-#start_date{
-
-}
-#b_version{
-  font-weight:bold;
-}
-#upcoming_rls{
-  float:right;
-}
-#fl{
-  float:left;
-}
-span{
-  }
-.no-padding{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
-.no-margin{
-  margin: 0px;
-}
-.rc2{
-  max-height: 120px;
-}
-#row1{
-    min-height: 100px;
-    padding: 10px;
-  }
-#row2{
-  min-height: 350px;
-  min-width: 370px;
-  padding-top:10px;
-}
-#row3{
-  min-width: 370px;
-  min-height: 80px;
-  padding-bottom:10px;
-  padding-top: 10px;
-}
-#r1c1{
-  min-width: 400px;
-}
-#r1c2{
-  min-width: 400px;
-
-}
-#mob{
-  min-width: 350px;
-}
-#dev_env{
-  float:right;
-}
-#prod_env{
-  float: right;
-}
-
-div.main_div{
-    margin:0;
-    padding:10px;
-    width: 90%;
-    height: 40px;    
-    position:absolute;
-    overflow: hidden;
-}
-div.text_wrapper{    
-    height:20px;
-    /*z-index:10;*/
-    background:transparent;
-    white-space: nowrap;
-    font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
-    color:black;
-    font-size:15px;
-    vertical-align: middle;
-    -webkit-transition: all 0.3s ease-in-out;
-                -moz-transition: all 0.3s ease-in-out;
-                -o-transition: all 0.3s ease-in-out;
-                -ms-transition: all 0.3s ease-in-out;
-    position:absolute;
-    -webkit-animation: anim 8.5s infinite;
-    /*animation: anim 8.5s infinite;
-    animation-direction: alternate-reverse;*/
-    -webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
-    animation-timing-function: linear;
-}
-
-@-webkit-keyframes anim {
-     from {
-         left: -50%;         
-     }
-     to {
-         left:100%;
-     }
-}
-
-@keyframes anim {
-   from {
-         left: -20%;
-     }
-     to {
-         left:100%;
-     }
-}
-/////css-over////
-
-/////html/////
->>>>>>> origin/master
 <html>
 <head>
 <meta charset="utf-8">
@@ -200,19 +17,22 @@ div.text_wrapper{
   <div class="row" ng-controller="row1-col1">
       <div class="col-xs-6 " id="r1c1">
           <div class="col-xs-12 well no-margin" id="row1">
+          <br id="br">
               <div class="row">
-                  <span class="col-xs-6" id="project_name" ng-bind="project_name"></span>
-                    <span class="col-xs-6" id="upcoming_rls">Upcoming release-<b ng-bind="release"></b></span>
+                  <span class="col-xs-12" id="project_name" >Branch Name- <b ng-bind="project_name"></b></span>     
                 </div>
              <br id="br">
-                <div class="row">
+             <div class="row">
+                  <span class="col-xs-12" id="upcoming_rls">Upcoming release- <b ng-bind="release"></b></span>               
+             </div>
+<!--                 <div class="row">
                   <span class="col-xs-6" id="fl">Started: <span id="start_date" ng-bind="start_date"></span></span>
                   <span class="col-xs-6" id="fl">Expected: <span id="exp_date" ng-bind="exp_date"></span></span>
                 </div>
-              <br id="br">
-                <div class="row">
+              <br id="br"> -->
+<!--                 <div class="row">
                   <span class="col-xs-12" id="fl">Baseline Version- <span id="b_version" ng-bind="b_version"></span></span>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="col-xs-6" id="r1c2" ng-controller="row1-col2">
@@ -225,21 +45,16 @@ div.text_wrapper{
           <div class="col-xs-4">
             <div class="well no-padding rc2 no-margin" id="row1">
               <span >WIP</span>
-<<<<<<< HEAD
+
                 <h3 ng-bind="wip"></h3>
-=======
-                <h3 ng-bind="wip">50</h3>
->>>>>>> origin/master
+
             </div>  
           </div>
           <div class="col-xs-4">
             <div class="well no-padding rc2 no-margin" id="row1">
               <span >Multiple Users</span>
-<<<<<<< HEAD
                 <h3 ng-bind="mu"></h3>
-=======
-                <h3 ng-bind="mu">50</h3>
->>>>>>> origin/master
+
             </div>  
           </div>
         </div>        
@@ -265,15 +80,10 @@ div.text_wrapper{
             
             <!--pie chart-->
             <div ng-controller="chartCtrl">
-            <div class="col-xs-1" ng-repeat="percent in percentages track by $index">
+            <div class="col-xs-2" ng-repeat="percent in percentages track by $index">
                           <span class="chart" easypiechart ng-init="options = { animate:false, barColor:'#E67E22', scaleColor:false, lineWidth:3, lineCap:'butt' }" percent=" percent" options="options">
-<<<<<<< HEAD
                             <span class="percent" ng-bind="percent[0]"></span>
                             <p ng-bind="percent[1]"></p>
-=======
-                            <span class="percent" ng-bind="percent"></span>
-                            <p ng-bind="filename"></p>
->>>>>>> origin/master
                             </span>  
             </div>
             </div>
@@ -326,45 +136,9 @@ div.text_wrapper{
     </div>
   </div>    
 </footer>
-<<<<<<< HEAD
 </script>
 <script src="angular.easypiechart.min.js"></script>
 <script src="dashboard.js"></script>
 </body>
 
 </html>
-=======
-<script src="angular.easypiechart.min.js"></script>
-<script src="dashboard.js"></script>
-</body>
-</html>
-/////html-over////
-  
-/////js//////
-var app=angular.module("dash",["easypiechart"]);
-  app.controller("row1-col1",function($scope){
-    $scope.project_name="Verizon";
-    $scope.release="1704";
-    $scope.start_date="2 Feb 2017";
-    $scope.exp_date="31 Dec 2017";
-    $scope.b_version="1.0.3.1";
-  });
-  app.controller("row1-col2",function($scope){
-    $scope.num="Verizon";
-    $scope.tf="500";
-    $scope.wip="100";
-    $scope.mu="50";
-  });
-    app.controller("row3-col1",function($scope){
-      $scope.prod_env="git";
-      $scope.dev_env="";
-  });
-    app.controller("row3-col2",function($scope){
-
-  });
-    app.controller('chartCtrl', ['$scope', function ($scope) {
-        $scope.percentages = [70,50,66,33,17,83,92,74,45,24,56,23,88,90,23,34,45,67,71,71,71,71,71,71,71,71];
-        $scope.filename= "filename";
-    }]);
-/////js-over////
->>>>>>> origin/master

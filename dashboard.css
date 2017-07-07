@@ -69,7 +69,6 @@ header{
     padding-left:5%;
   }
 #project_name{
-  font-weight:bold;
     float:left !important;
 }
 #start_date{
@@ -79,7 +78,7 @@ header{
   font-weight:bold;
 }
 #upcoming_rls{
-  float:right;
+  float:left;
 }
 #fl{
   float:left;
